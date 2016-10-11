@@ -29,9 +29,9 @@ public class Events extends Fragment {
         database = FirebaseDatabase.getInstance() ;
         reference = database.getReference("Events");
         ListView lv= (ListView) getActivity().findViewById(R.id.forumevent);
-        FirebaseListAdapter<events> eventsFirebaseListAdapter=new FirebaseListAdapter<events>(getActivity(),events.class,R.layout.events_child,reference) {
+        FirebaseListAdapter<eventschild> eventsFirebaseListAdapter=new FirebaseListAdapter<eventschild>(getActivity(),eventschild.class,R.layout.events_child,reference) {
             @Override
-            protected void populateView(View v, events model, int position) {
+            protected void populateView(View v, eventschild model, int position) {
                 TextView tv1= (TextView) v.findViewById(R.id.name_of_event);
                 TextView tv2= (TextView) v.findViewById(R.id.event_by);
                 TextView tv3=(TextView)v.findViewById(R.id.short_desc);
