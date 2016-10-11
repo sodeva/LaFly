@@ -53,7 +53,7 @@ public class Forum extends Fragment {
               Long Date = qc.getDate() ;
               String Month = qc.getMonth() ;
               final String Title = qc.getTitle() ;
-              String BestAnswer = qc.getBestAnswer()  ;// uid who have given best answer
+              String BestAnswer = qc.getbestAnswer()  ;// uid who have given best answer
               final String qid = qc.getQid() ;
 
 

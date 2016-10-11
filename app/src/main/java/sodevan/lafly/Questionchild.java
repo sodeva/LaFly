@@ -61,7 +61,7 @@ public class Questionchild {
         return Title;
     }
 
-    public String getBestAnswer() {
+    public String getbestAnswer() {
         return BestAnswer;
     }
 
