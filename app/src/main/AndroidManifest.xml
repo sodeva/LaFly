@@ -28,7 +28,9 @@
         <activity android:name=".Forum" />
         <activity android:name=".Events" />
         <activity android:name=".EnLearn" />
-        <activity android:name=".Info"></activity>
+        <activity android:name=".Info" />
+        <activity android:name=".AnswerScreen"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

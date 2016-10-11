@@ -122,6 +122,8 @@ public class Login extends AppCompatActivity {
 
                     SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()) ;
                     sp.edit().putString("Uid",Uid).commit() ;
+                    sp.edit().putString("name",name).commit() ;
+                    sp.edit().putString("no",no).commit() ;
                     Toast.makeText( getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
 
                     Intent changehome = new Intent(getApplicationContext() , Home.class) ;

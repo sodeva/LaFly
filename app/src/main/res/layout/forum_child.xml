@@ -79,9 +79,24 @@
         android:layout_marginTop="10dp"
         android:textColor="#000000"
         android:maxLines="3"
+        android:layout_marginBottom="15dp"
         android:text="It had been almost three months since I was talking to this guy I happened to meet at the airport. I was single and so was he. It was evident that both of us had romantic inclination toward each other but it wasn't completely out in the air."
         />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ans"
+        android:layout_centerHorizontal="true"
+        android:text="Answer This Question"
+        android:background="@drawable/button"
+        android:textColor="@color/white"
+        android:padding="10dp"
+        android:focusable="false"
+        android:id="@+id/ansbtn"
+
+
+        />
 
 
 

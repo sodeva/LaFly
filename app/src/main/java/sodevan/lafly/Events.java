@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 public class Events extends Fragment {
 
     Context c ;
-
+    //continue ronak
 
     @Nullable
     @Override

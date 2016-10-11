@@ -9,38 +9,17 @@
 
     >
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:background="@color/white"
-        android:id="@+id/buttons">
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Vlife"
-        android:layout_alignParentRight="true"
-        android:id="@+id/vlife"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="add"
-        android:layout_alignParentLeft="true"
-/>
-
-    </RelativeLayout>
 
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/buttons"
         android:id="@+id/forumques"
         android:layout_marginBottom="65dp"
         android:divider="#E0E0E0"
         android:dividerHeight="10dp"
+        android:clickable="true"
+
         >
 
     </ListView>

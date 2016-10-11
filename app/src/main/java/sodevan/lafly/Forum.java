@@ -1,16 +1,21 @@
 package sodevan.lafly;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.database.DatabaseReference;
@@ -46,10 +51,10 @@ public class Forum extends Fragment {
               String By = qc.getBy() ;
                 By = "Asked By : "+By ;
               Long Date = qc.getDate() ;
-              String Description = qc.getDescription() ;
               String Month = qc.getMonth() ;
-              String Title = qc.getTitle() ;
-              String BestAnswer = qc.getBestAnswer()  ; // uid who have given best answer
+              final String Title = qc.getTitle() ;
+              String BestAnswer = qc.getBestAnswer()  ;// uid who have given best answer
+              final String qid = qc.getQid() ;
 
 
               String dday = Month +" "+ Date  ;
@@ -60,7 +65,9 @@ public class Forum extends Fragment {
               Long ansdate  = answerchild.getDate() ;
               String ansmonth = answerchild .getMonth() ;
               String ansdday  =  ansmonth + " " + ansdate ;
-              String answer = answerchild.getAnswer() ;
+              final String answer = answerchild.getAnswer() ;
+
+
 
 
 
@@ -76,6 +83,21 @@ public class Forum extends Fragment {
               TextView ansnametv = (TextView)v.findViewById(R.id.ansname) ;
               TextView ansdatetv = (TextView)v.findViewById(R.id.ansdate) ;
               TextView answertv = (TextView)v.findViewById(R.id.ans) ;
+              Button ansbtn = (Button) v.findViewById(R.id.ansbtn) ;
+
+              ansbtn.setOnClickListener(new View.OnClickListener() {
+                  @Override
+                  public void onClick(View v) {
+
+                      Log.d(" TEST : " , " BUTTON" ) ;
+                      Intent answerscreen = new Intent(getContext(), AnswerScreen.class) ;
+                      answerscreen.putExtra("Ques" , Title ) ;
+                      answerscreen.putExtra("qid" , qid) ;
+                      startActivity(answerscreen);
+
+                  }
+              });
+
 
 
               Bytv.setText(By);
@@ -96,6 +118,15 @@ public class Forum extends Fragment {
 
 
         lv.setAdapter(questionAdapter);
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Log.d("Test : " , "Item:"+position) ;
+
+            }
+        });
 
         return V ;
     }

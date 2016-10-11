@@ -14,29 +14,27 @@ public class Questionchild {
     HashMap<String , Answerchild> Answers  ;
     String By  ;
     Long Date ;
-    String Description ;
     String Month ;
     String Title ;
-
-
     String BestAnswer ;
-
-
+    String qid ;
 
 
 
     public Questionchild() {
     }
 
-    public Questionchild( HashMap<String , Answerchild> Answers ,String By ,Long Date , String Description ,String Month , String Title ,String BestAnswer ) {
+
+
+    public Questionchild( HashMap<String , Answerchild> Answers ,String By ,Long Date , String Description ,String Month , String Title ,String BestAnswer ,String qid ) {
 
         this.By =By ;
         this.Answers =Answers ;
         this.Date =Date ;
-        this.Description =Description ;
         this.Month =Month ;
         this.Title = Title ;
         this.BestAnswer = BestAnswer ;
+        this.qid = qid ;
 
 
     }
@@ -54,9 +52,6 @@ public class Questionchild {
         return Date;
     }
 
-    public String getDescription() {
-        return Description;
-    }
 
     public String getMonth() {
         return Month;
@@ -69,6 +64,8 @@ public class Questionchild {
     public String getBestAnswer() {
         return BestAnswer;
     }
+
+    public String getQid() { return qid; }
 
 
 }
