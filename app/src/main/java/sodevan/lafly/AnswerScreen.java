@@ -67,7 +67,7 @@ public class AnswerScreen extends AppCompatActivity {
         final String Uid = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getString("Uid", "error1") ;
 
         reference = database.getReference("ForumQues").child(qid) ;
-        reference2 = reference.child("Answers").child(Uid) ;
+        reference2 = reference.child("answers").child(Uid) ;
 
 
         bta.setOnClickListener(new View.OnClickListener() {

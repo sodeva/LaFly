@@ -57,15 +57,29 @@ public class Forum extends Fragment {
               final String qid = qc.getQid() ;
 
 
+
+
+
               String dday = Month +" "+ Date  ;
+              if(answers!=null) {
 
-              Answerchild answerchild = answers.get(BestAnswer) ;
+                  Answerchild answerchild = answers.get(BestAnswer);
 
-              String ansname = answerchild.getName() ;
-              Long ansdate  = answerchild.getDate() ;
-              String ansmonth = answerchild .getMonth() ;
-              String ansdday  =  ansmonth + " " + ansdate ;
-              final String answer = answerchild.getAnswer() ;
+                  TextView ansnametv = (TextView) v.findViewById(R.id.ansname);
+                  TextView ansdatetv = (TextView) v.findViewById(R.id.ansdate);
+                  TextView answertv = (TextView) v.findViewById(R.id.ans);
+
+                  String ansname = answerchild.getName();
+                  Long ansdate = answerchild.getDate();
+                  String ansmonth = answerchild.getMonth();
+                  String ansdday = ansmonth + " " + ansdate;
+                  final String answer = answerchild.getAnswer();
+                  ansnametv.setText(ansname);
+                  ansdatetv.setText(ansdday);
+                  answertv.setText(answer);
+
+              }
+
 
 
 
@@ -80,9 +94,7 @@ public class Forum extends Fragment {
               TextView Bytv = (TextView)v.findViewById(R.id.By) ;
               TextView Datetv = (TextView)v.findViewById(R.id.date) ;
               TextView  questv = (TextView)v.findViewById(R.id.ques) ;
-              TextView ansnametv = (TextView)v.findViewById(R.id.ansname) ;
-              TextView ansdatetv = (TextView)v.findViewById(R.id.ansdate) ;
-              TextView answertv = (TextView)v.findViewById(R.id.ans) ;
+
               Button ansbtn = (Button) v.findViewById(R.id.ansbtn) ;
 
               ansbtn.setOnClickListener(new View.OnClickListener() {
@@ -103,9 +115,8 @@ public class Forum extends Fragment {
               Bytv.setText(By);
               Datetv.setText(dday);
               questv.setText(Title);
-              ansnametv.setText(ansname);
-              ansdatetv.setText(ansdday);
-              answertv.setText(answer);
+
+
 
 
               Typeface questf = Typeface.createFromAsset(c.getAssets() , "Lalezar-Regular.ttf") ;
