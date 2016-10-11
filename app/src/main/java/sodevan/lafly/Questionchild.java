@@ -16,7 +16,7 @@ public class Questionchild {
     Long Date ;
     String Month ;
     String Title ;
-    String BestAnswer ;
+    String bestAnswer ;
     String qid ;
 
 
@@ -26,16 +26,15 @@ public class Questionchild {
 
 
 
-    public Questionchild( HashMap<String , Answerchild> answers ,String By ,Long Date , String Description ,String Month , String Title ,String BestAnswer ,String qid ) {
+    public Questionchild( HashMap<String , Answerchild> answers ,String By ,Long Date , String Description ,String Month , String Title ,String bestAnswer ,String qid ) {
 
         this.By =By ;
         this.answers =answers ;
         this.Date =Date ;
         this.Month =Month ;
         this.Title = Title ;
-        this.BestAnswer = BestAnswer ;
+        this.bestAnswer = bestAnswer ;
         this.qid = qid ;
-
 
     }
 
@@ -61,8 +60,8 @@ public class Questionchild {
         return Title;
     }
 
-    public String getbestAnswer() {
-        return BestAnswer;
+    public String getBestAnswer() {
+        return bestAnswer;
     }
 
     public String getQid() { return qid; }
