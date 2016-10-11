@@ -6,10 +6,10 @@ package sodevan.lafly;
 
 public class Answerchild {
 
-    String Answer ;
-    Long Date  ;
-    String Month  ;
-    String Name ;
+    String answer ;
+    Long date  ;
+    String month  ;
+    String name ;
 
 
 
@@ -18,28 +18,28 @@ public class Answerchild {
 
     public  Answerchild(String Answer ,Long Date ,String Month ,String Name){
 
-        this.Answer =Answer  ;
-        this.Date =Date  ;
-        this.Month = Month  ;
-        this.Name  = Name   ;
+        this.answer =Answer  ;
+        this.date =Date  ;
+        this.month = Month  ;
+        this.name  = Name   ;
 
     }
 
 
     public String getAnswer() {
-        return Answer;
+        return answer;
     }
 
     public Long getDate() {
-        return Date;
+        return date;
     }
 
     public String getMonth() {
-        return Month;
+        return month;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
 

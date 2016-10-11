@@ -12,10 +12,10 @@ public class Questionchild {
 
 
     HashMap<String , Answerchild> answers  ;
-    String By  ;
-    Long Date ;
-    String Month ;
-    String Title ;
+    String by  ;
+    Long date ;
+    String month ;
+    String title ;
     String bestAnswer ;
     String qid ;
 
@@ -28,11 +28,11 @@ public class Questionchild {
 
     public Questionchild( HashMap<String , Answerchild> answers ,String By ,Long Date , String Description ,String Month , String Title ,String bestAnswer ,String qid ) {
 
-        this.By =By ;
+        this.by =By ;
         this.answers =answers ;
-        this.Date =Date ;
-        this.Month =Month ;
-        this.Title = Title ;
+        this.date =Date ;
+        this.month =Month ;
+        this.title = Title ;
         this.bestAnswer = bestAnswer ;
         this.qid = qid ;
 
@@ -44,20 +44,20 @@ public class Questionchild {
     }
 
     public String getBy() {
-        return By;
+        return by;
     }
 
     public Long getDate() {
-        return Date;
+        return date;
     }
 
 
     public String getMonth() {
-        return Month;
+        return month;
     }
 
     public String getTitle() {
-        return Title;
+        return title;
     }
 
     public String getBestAnswer() {
