@@ -8,6 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="100dp"
     android:id="@+id/cover"
+    android:src="@drawable/pic"
     /><!--gsdgd-->
     <TextView
         android:layout_width="wrap_content"
