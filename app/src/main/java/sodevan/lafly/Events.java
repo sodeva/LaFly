@@ -26,9 +26,9 @@ public class Events extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.activity_events ,container  , false) ;
-        database = FirebaseDatabase.getInstance() ;
+       database = FirebaseDatabase.getInstance() ;
         reference = database.getReference("Events");
-        ListView lv= (ListView) getActivity().findViewById(R.id.forumevent);
+        ListView lv= (ListView) v.findViewById(R.id.forumevent);
         FirebaseListAdapter<eventschild> eventsFirebaseListAdapter=new FirebaseListAdapter<eventschild>(getActivity(),eventschild.class,R.layout.events_child,reference) {
             @Override
             protected void populateView(View v, eventschild model, int position) {
