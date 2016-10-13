@@ -53,7 +53,6 @@ public class Questionchild {
         return date;
     }
 
-
     public String getMonth() {
         return month;
     }

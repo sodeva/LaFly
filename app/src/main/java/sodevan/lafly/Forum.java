@@ -2,7 +2,9 @@ package sodevan.lafly;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -161,6 +163,13 @@ public class Forum extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu , menu);
+
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getContext()) ;
+        boolean b = sp.getBoolean("LaLifestatus" , false) ;
+
+        MenuItem item =  menu.findItem(R.id.lalife_check_box) ;
+        item.setChecked(b)  ;
+
         super.onCreateOptionsMenu(menu,inflater);
     }
 
@@ -168,16 +177,34 @@ public class Forum extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        switch (item.getItemId()){
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getContext());
 
-            case R.id.addques :
-                Intent addques = new Intent(getContext() , AddQues.class) ;
-                startActivity(addques) ;
+
+        switch (item.getItemId()) {
+
+            case R.id.addques:
+                Intent addques = new Intent(getContext(), AddQues.class);
+                startActivity(addques);
+
+            case R.id.lalife_check_box:
+                if (item.isChecked()) {
+                    item.setChecked(false);
+                    sp.edit().putBoolean("LaLifestatus", false).commit();
+                    Toast.makeText(getContext(), " LaLife Deactivated ", Toast.LENGTH_SHORT).show();
+                    // stop the widget services
+
+                } else {
+                    item.setChecked(true);
+                    sp.edit().putBoolean("LaLifestatus", true).commit() ;
+                    Toast.makeText(getContext(), "LaLife Activated", Toast.LENGTH_SHORT).show();
+                }
 
         }
+                return super.onOptionsItemSelected(item);
 
-        return super.onOptionsItemSelected(item);
+
     }
+
 
     public void setC(Context c) {
         this.c = c;
