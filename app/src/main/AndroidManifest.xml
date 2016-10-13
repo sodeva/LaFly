@@ -27,12 +27,7 @@
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait"
             />
-        <activity
-            android:name=".Forum"
-            android:theme="@style/AppTheme1" />
-        <activity android:name=".Events" />
-        <activity android:name=".EnLearn" />
-        <activity android:name=".Info" />
+
         <activity
             android:name=".AnswerScreen"
             android:theme="@style/AppTheme" />
@@ -42,6 +37,10 @@
         <activity android:name=".AddQues"
             android:theme="@style/AppTheme"
             />
+
+
+        <activity android:name=".addNewEvent"
+            android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>

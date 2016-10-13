@@ -72,10 +72,10 @@ public class Events extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-               //  case R.id.action_search:
-              //      Log.d("Click","Hua re baab");
-             //     Intent i=new Intent(getContext(),addNewEvent.class);
-            // startActivity(i);
+            case R.id.addques:
+            Log.d("Click","Hua re baab");
+            Intent i=new Intent(getContext(),addNewEvent.class);
+            startActivity(i);
         }
 return true;
     }
