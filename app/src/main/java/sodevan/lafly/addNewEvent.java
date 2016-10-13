@@ -20,10 +20,10 @@ public class addNewEvent extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_event);
         database=FirebaseDatabase.getInstance();
-        reference=database.getReference("events");
+        reference=database.getReference("Events");
         bt1= (Button) findViewById(R.id.button2);
-        et1= (EditText) findViewById(R.id.name_of_event);
-        et2= (EditText) findViewById(R.id.event_by);
+        et1= (EditText) findViewById(R.id.name_event);
+        et2= (EditText) findViewById(R.id.organised_by);
         et3= (EditText) findViewById(R.id.short_desc);
         et4= (EditText) findViewById(R.id.long_desc);
         bt1.setOnClickListener(new View.OnClickListener() {
