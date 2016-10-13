@@ -4,7 +4,6 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -25,15 +24,24 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".Home"
-            android:theme="@style/AppTheme" />
-      <!--  <activity android:name=".Forum" />
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".Forum"
+            android:theme="@style/AppTheme1" />
         <activity android:name=".Events" />
         <activity android:name=".EnLearn" />
-        <activity android:name=".Info" />-->
+        <activity android:name=".Info" />
         <activity
             android:name=".AnswerScreen"
             android:theme="@style/AppTheme" />
-        <activity android:name=".addNewEvent"></activity>
+        <activity
+            android:name=".QuestionScreen"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".AddQues"
+            android:theme="@style/AppTheme"
+            />
     </application>
 
 </manifest>

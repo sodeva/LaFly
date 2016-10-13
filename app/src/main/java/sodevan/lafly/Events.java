@@ -1,21 +1,13 @@
 package sodevan.lafly;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -27,17 +19,20 @@ public class Events extends Fragment {
     FirebaseDatabase database ;
     DatabaseReference reference ;
     Context c ;
+    ListView lv ;
 //sdgsdgdafad
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-
-        View v = inflater.inflate(R.layout.activity_events ,container  , false) ;
-        setHasOptionsMenu(true);
+        View V = inflater.inflate(R.layout.activity_events ,container  , false) ;
         database = FirebaseDatabase.getInstance() ;
         reference = database.getReference("Events");
-        ListView lv= (ListView) v.findViewById(R.id.forumevent);
+
+
+         lv= (ListView) V.findViewById(R.id.forumevent);
+
+
         FirebaseListAdapter<eventschild> eventsFirebaseListAdapter=new FirebaseListAdapter<eventschild>(getActivity(),eventschild.class,R.layout.events_child,reference) {
             @Override
             protected void populateView(View v, eventschild model, int position) {
@@ -53,31 +48,7 @@ public class Events extends Fragment {
         };
 
         lv.setAdapter(eventsFirebaseListAdapter);
-
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-               //Code for onitemclick
-            }
-        });
-        return v ;
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu,menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.action_search:
-                Log.d("Click","Hua re baab");
-                Intent i=new Intent(this.getActivity(),addNewEvent.class);
-                startActivity(i);
-        }
-return true;
+        return V ;
     }
 
     public void setC(Context c) {

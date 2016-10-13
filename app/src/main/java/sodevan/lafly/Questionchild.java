@@ -18,7 +18,7 @@ public class Questionchild {
     String title ;
     String bestAnswer ;
     String qid ;
-
+    String status ;
 
 
     public Questionchild() {
@@ -26,7 +26,7 @@ public class Questionchild {
 
 
 
-    public Questionchild( HashMap<String , Answerchild> answers ,String By ,Long Date , String Description ,String Month , String Title ,String bestAnswer ,String qid ) {
+    public Questionchild( HashMap<String , Answerchild> answers ,String By ,Long Date , String Description ,String Month , String Title ,String bestAnswer ,String qid , String status) {
 
         this.by =By ;
         this.answers =answers ;
@@ -35,6 +35,8 @@ public class Questionchild {
         this.title = Title ;
         this.bestAnswer = bestAnswer ;
         this.qid = qid ;
+        this.status = status ;
+
 
     }
 
@@ -65,6 +67,10 @@ public class Questionchild {
     }
 
     public String getQid() { return qid; }
+
+    public String getStatus() {
+        return status;
+    }
 
 
 }

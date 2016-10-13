@@ -7,12 +7,17 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,6 +39,8 @@ public class Forum extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
+        setHasOptionsMenu(true);
+
         View V = inflater.inflate(R.layout.activity_forum ,container  , false) ;
 
         database = FirebaseDatabase.getInstance() ;
@@ -42,7 +49,9 @@ public class Forum extends Fragment {
         ListView lv = (ListView) V.findViewById(R.id.forumques) ;
 
 
-      FirebaseListAdapter<Questionchild> questionAdapter = new FirebaseListAdapter<Questionchild>(getActivity() ,Questionchild.class , R.layout.forum_child, reference ) {
+
+
+        FirebaseListAdapter<Questionchild> questionAdapter = new FirebaseListAdapter<Questionchild>(getActivity() ,Questionchild.class , R.layout.forum_child, reference ) {
           @Override
           protected void populateView(View v, Questionchild qc, int position) {
 
@@ -55,9 +64,9 @@ public class Forum extends Fragment {
               final String Title = qc.getTitle() ;
               String BestAnswer = qc.getBestAnswer()  ;// uid who have given best answer
               final String qid = qc.getQid() ;
-
+              ImageView im = (ImageView)v.findViewById(R.id.ansim) ;
               String dday = Month +" "+ Date  ;
-              if(answers!=null ) {
+              String status =  qc.getStatus() ;
 
                   Answerchild answerchild = answers.get(BestAnswer);
 
@@ -74,18 +83,15 @@ public class Forum extends Fragment {
                   ansdatetv.setText(ansdday);
                   answertv.setText(answer);
 
-              }
+               if (ansname.equals("")){
 
+                   ansdatetv.setText("");
+               }
 
+              else {
+                   im.setImageResource(R.drawable.ic_account_circle_black_48dp);
 
-
-
-
-
-
-
-
-
+               }
 
               TextView Bytv = (TextView)v.findViewById(R.id.By) ;
               TextView Datetv = (TextView)v.findViewById(R.id.date) ;
@@ -101,6 +107,7 @@ public class Forum extends Fragment {
                       Intent answerscreen = new Intent(getContext(), AnswerScreen.class) ;
                       answerscreen.putExtra("Ques" , Title ) ;
                       answerscreen.putExtra("qid" , qid) ;
+
                       startActivity(answerscreen);
 
                   }
@@ -129,17 +136,52 @@ public class Forum extends Fragment {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                Log.d("Test : " , "Item:"+position) ;
+                       Questionchild q =(Questionchild)parent.getItemAtPosition(position) ;
+                       String ques =  q.getTitle() ;
+                        String qid = q.getQid() ;
+                        String status = q.getStatus() ;
+                       Intent quesscreen = new Intent(getContext(),QuestionScreen.class) ;
+                       quesscreen.putExtra("ques", ques) ;
+                        quesscreen.putExtra("qid" , qid) ;
+                quesscreen.putExtra("status" , status) ;
+                       startActivity(quesscreen);
+                Log.d("ques" , ques) ;
+                Log.d("qid" , qid) ;
 
             }
         });
 
+
+
+
         return V ;
+    }
+
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu , menu);
+        super.onCreateOptionsMenu(menu,inflater);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()){
+
+            case R.id.addques :
+                Intent addques = new Intent(getContext() , AddQues.class) ;
+                startActivity(addques) ;
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     public void setC(Context c) {
         this.c = c;
     }
+
 
 }

@@ -62,7 +62,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
 
     }
 
-    int images[] = {R.drawable.ic_question_answer_white_36dp , R.drawable.ic_event_white_36dp , R.drawable.ic_video_label_white_36dp , R.drawable.ic_description_white_36dp} ;
+    int images[] = {R.drawable.ic_question_answer_white_24dp , R.drawable.ic_event_white_24dp , R.drawable.ic_video_label_white_24dp , R.drawable.ic_description_white_24dp} ;
     private static final int TITLE_OFFSET_DIPS = 24;
     private static final int TAB_VIEW_PADDING_DIPS = 16;
     private static final int TAB_VIEW_TEXT_SIZE_SP = 17;

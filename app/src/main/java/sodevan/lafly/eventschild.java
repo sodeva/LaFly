@@ -5,7 +5,7 @@ package sodevan.lafly;
  */
 
 public class eventschild {//sdfddfs
-String event_name,event_by,event_short,event_long;
+String event_name ,event_by ,event_short,event_long;
 public eventschild(){
 
 }

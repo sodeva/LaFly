@@ -99,6 +99,7 @@ public class AnswerScreen extends AppCompatActivity {
                     reference2.child("month").setValue(month_name) ;
                     reference2.child("name").setValue(name) ;
                     reference.child("bestAnswer").setValue(Uid) ;
+                    reference.child("answers").child("noAns").removeValue() ;
 
                     Toast.makeText(getApplicationContext(), "Successfull Submitted", Toast.LENGTH_SHORT).show();
                     finish();

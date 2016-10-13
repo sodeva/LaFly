@@ -24,7 +24,6 @@
         android:id="@+id/tabs"
         android:elevation="2dip"
         android:background="@color/colorPrimary"
-
         />
 
 

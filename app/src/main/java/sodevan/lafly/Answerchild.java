@@ -22,7 +22,6 @@ public class Answerchild {
         this.date =Date  ;
         this.month = Month  ;
         this.name  = Name   ;
-
     }
 
 
