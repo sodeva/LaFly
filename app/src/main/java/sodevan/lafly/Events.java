@@ -74,7 +74,7 @@ public class Events extends Fragment {
         switch (item.getItemId()){
             case R.id.action_search:
                 Log.d("Click","Hua re baab");
-                Intent i=new Intent(this.getActivity(),addNewEvent.class);
+                Intent i=new Intent(getContext(),addNewEvent.class);
                 startActivity(i);
         }
 return true;
