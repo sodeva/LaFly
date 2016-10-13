@@ -26,12 +26,12 @@ public class EnLearn  extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.activity_en_learn ,container  , false) ;
+        View v = inflater.inflate(R.layout.activity_en_learn, container, false);
 
-        database = FirebaseDatabase.getInstance() ;
-        ref = database.getReference("Enlearn Videos")  ;
+        database = FirebaseDatabase.getInstance();
+        ref = database.getReference("Enlearn Videos");
         lv = (ListView) v.findViewById(R.id.enlearnlistview);
-
+/*
 
 
         FirebaseListAdapter<VideoChild> fb = new FirebaseListAdapter<VideoChild>(getActivity(), VideoChild.class, R.layout.videochild, ref) {
@@ -57,8 +57,9 @@ public class EnLearn  extends Fragment {
         lv.setAdapter(fb);
         return v ;
 
+    }*/
+        return v;
     }
-
     public void setC(Context c) {
         this.c = c;
     }
