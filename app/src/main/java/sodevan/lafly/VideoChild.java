@@ -1,14 +1,10 @@
 package sodevan.lafly;
 
-import com.google.android.youtube.player.YouTubeBaseActivity;
-import com.google.android.youtube.player.YouTubeInitializationResult;
-import com.google.android.youtube.player.YouTubePlayer;
-
 /**
  * Created by kartiksharma on 11/10/16.
  */
 
-public class VideoChild extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener{
+public class VideoChild {
     String url;
     String date;
     String name;
@@ -34,13 +30,5 @@ public class VideoChild extends YouTubeBaseActivity implements YouTubePlayer.OnI
         return name;
     }
 
-    @Override
-    public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
 
-    }
-
-    @Override
-    public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
-
-    }
 }

@@ -2,10 +2,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="15dp"
+
+
     >
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@color/white">
     <fragment
-        android:name="com.google.android.youtube.player.YouTubePlayerSupportFragment"
+       class="com.google.android.youtube.player.YouTubePlayerSupportFragment"
         android:id="@+id/youtube_fragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
@@ -17,16 +23,19 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/youtube_fragment"
         android:textSize="22sp"
+        android:textColor="@color/navigationBarColor"
         android:id="@+id/heading"
-        android:text="Napom | Grand Beatbox SHOWCASE"/>
+        android:text="null"/>
     <TextView
         android:layout_below="@id/heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/navigationBarColor"
         android:layout_marginTop="2dp"
-        android:text="16/08/2016"
+        android:text="01/02/16"
         android:textSize="15sp"
         android:id="@+id/date"
         />
+    </RelativeLayout>
 
 </RelativeLayout>
