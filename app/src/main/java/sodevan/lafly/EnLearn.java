@@ -5,7 +5,6 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
     public class EnLearn  extends Fragment {
     private ListView lv;
-    Typeface robotto;
+    Typeface roboto;
     FirebaseDatabase database;
     DatabaseReference ref;
     private YouTubePlayer YPlayer;
@@ -42,14 +41,14 @@ import com.google.firebase.database.FirebaseDatabase;
 
             @Override
             protected void populateView(View v, VideoChild model, int position) {
-                robotto=Typeface.createFromAsset(c.getAssets() , "roboto.ttf") ;
+                roboto=Typeface.createFromAsset(c.getAssets() , "roboto.ttf") ;
                 final String url=model.getURL();
                 String date=model.getDate();
                 String name=model.getName();
                 TextView Date=(TextView)v.findViewById(R.id.date);
                 TextView Name=(TextView)v.findViewById(R.id.heading);
-                Name.setTypeface(robotto);
-                Date.setTypeface(robotto);
+                Name.setTypeface(roboto);
+                Date.setTypeface(roboto);
                 Name.setText(name);
                 Date.setText(date);
 
@@ -64,29 +63,19 @@ import com.google.firebase.database.FirebaseDatabase;
                     {
                         if (!b) {
                             YPlayer =youTubePlayer;
+                            YPlayer.setPlayerStyle(YouTubePlayer.PlayerStyle.DEFAULT);
                             YPlayer.setFullscreen(false);
                             YPlayer.loadVideo(url);
-                            YPlayer.pause();
+                          YPlayer.pause();
                         }
                     }
 
                     @Override
                     public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult)
                     {
-                        Log.d("Error","Error");
-
-
 
                     }
-
-
-
                 });
-
-
-
-
-
             }
 
 
