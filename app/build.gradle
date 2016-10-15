@@ -5,7 +5,7 @@ android {
     buildToolsVersion "24.0.3"
     defaultConfig {
         applicationId "sodevan.lafly"
-        minSdkVersion 16
+        minSdkVersion 17
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
@@ -41,6 +41,7 @@ dependencies {
     compile 'com.oguzdev:CircularFloatingActionMenu:1.0.2'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha9'
     compile files('libs/YouTubeAndroidPlayerApi.jar')
+    compile 'com.github.PierfrancescoSoffritti:AndroidYouTubePlayer:0.7.2'
 
     compile 'com.android.support:support-v4:24.2.1'
     compile ('com.mapbox.mapboxsdk:mapbox-android-sdk:4.1.1@aar'){
