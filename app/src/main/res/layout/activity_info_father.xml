@@ -9,5 +9,18 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="sodevan.lafly.Info_father">
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lva"
+        android:divider="#FFFFFF"
+        android:dividerHeight="10dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Order now"
+        android:layout_below="@+id/lva"
+        android:id="@+id/bt_buy"
+        />
 
 </RelativeLayout>
