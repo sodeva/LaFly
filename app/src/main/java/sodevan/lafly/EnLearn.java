@@ -56,24 +56,8 @@ import com.google.firebase.database.FirebaseDatabase;
                 //Date.setText(date);
 
                  YouTubeThumbnailView thumb    = (YouTubeThumbnailView) v.findViewById(R.id.thumb);
-
-                thumb.initialize("AIzaSyCzEKeIrR_Cn-lORRuu0z-1PiD0kCYOI4I" , new YouTubeThumbnailView.OnInitializedListener()
-                {
-
-                    @Override
-                    public void onInitializationSuccess(YouTubeThumbnailView youTubeThumbnailView, YouTubeThumbnailLoader youTubeThumbnailLoader) {
-
-                        youTubeThumbnailLoader.setVideo(url);
-
-                    }
-
-                    @Override
-                    public void onInitializationFailure(YouTubeThumbnailView youTubeThumbnailView, YouTubeInitializationResult youTubeInitializationResult) {
-
-                    }
-                });
-
-
+                //AIzaSyCzEKeIrR_Cn-lORRuu0z-1PiD0kCYOI4I
+              //  thumb.initialize();
 
 
 
