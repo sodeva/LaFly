@@ -2,47 +2,72 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    android:paddingTop="20dp">
+    android:elevation="10dp"
+    android:background="@drawable/elevshadow"
+
+    >
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/main"
+        android:background="#EF9A9A"
+        android:paddingTop="30dp">
+
 <android.support.v7.widget.AppCompatImageView
     android:layout_width="match_parent"
     android:layout_height="100dp"
     android:id="@+id/cover"
     android:src="@drawable/pic"
-    /><!--gsdgd-->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/name_of_event"
-        android:text="Event Name"
-        android:layout_marginLeft="20dp"
-        android:layout_gravity="left"
-        android:layout_below="@+id/cover"
-        android:textColor="#FFF"
-        />
+    />
 
-    <TextView
-        android:layout_width="wrap_content"
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/name_of_event"
+            android:text="Event Name"
+            android:textColor="#FFF"
+            android:textSize="30sp"
+            android:layout_below="@id/cover"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/event_by"
+            android:text="By Team Sodevan"
+            android:textSize="15dp"
+            android:textColor="#FFF"
+            android:layout_below="@id/name_of_event"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            />
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:id="@+id/event_by"
-        android:text="By Team Sodevan"
-        android:layout_below="@+id/cover"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="20dp"
-        android:layout_alignParentEnd="true"
-        android:textColor="#FFF"
-        />
+        android:background="@color/windowBackground"
+        android:layout_below="@id/main">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/name_of_event"
         android:id="@+id/short_desc"
-        android:text="lorem epsum dolor"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique sed ipsum sed sagittis. Vivamus non sollicitudin risus, quis suscipit orci. Nulla eget consectetur urna, in fermentum felis. Nunc vel lobortis odio. Vestibulum ut diam ut ipsum ornare bibendum ac at felis. In ullamcorper quam sed augue posuere congue. Sed suscipit posuere augue sit amet convallis."
         android:textAlignment="center"
-        android:layout_marginTop="10dp"
-        android:textColor="#FFF"
+        android:textColor="#222222"
+        android:padding="30dp"
+
         />
+
+    </RelativeLayout>
 </RelativeLayout>

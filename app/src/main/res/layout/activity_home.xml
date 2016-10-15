@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:id="@+id/tabs"
-        android:elevation="2dip"
+        android:elevation="120dp"
         android:background="@color/colorPrimary"
         />
 

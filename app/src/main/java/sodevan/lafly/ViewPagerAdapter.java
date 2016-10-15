@@ -30,13 +30,27 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
 
+
         if(position==0) {
+            Info info = new Info() ;
+            info.setC(c);
+            return  info ;
+        }
+
+
+        else if(position==1) {
+            EnLearn enLearn = new EnLearn() ;
+            enLearn.setC(c);
+            return  enLearn  ;
+        }
+
+      else   if(position==2) {
             Forum forum = new Forum() ;
             forum.setC(c);
             return  forum  ;
         }
 
-        else if(position==1) {
+        else  {
             Events events = new Events() ;
             events.setC(c);
 
@@ -45,17 +59,6 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
 
 
-        else if(position==2) {
-            EnLearn enLearn = new EnLearn() ;
-            enLearn.setC(c);
-            return  enLearn  ;
-        }
-
-        else {
-            Info info = new Info() ;
-            info.setC(c);
-            return  info ;
-        }
     }
 
     @Override
@@ -63,10 +66,6 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
         return n ;
     }
 
-    @Override
-    public CharSequence getPageTitle(int position) {
-        return Titles[position] ;
-    }
 
     @Override
     public Parcelable saveState() {

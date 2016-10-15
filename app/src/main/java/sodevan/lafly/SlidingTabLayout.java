@@ -20,6 +20,7 @@ package sodevan.lafly;
         import android.graphics.Typeface;
         import android.support.v4.view.PagerAdapter;
         import android.support.v4.view.ViewPager;
+        import android.telecom.Conference;
         import android.util.AttributeSet;
         import android.util.SparseArray;
         import android.util.TypedValue;
@@ -62,7 +63,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
 
     }
 
-    int images[] = {R.drawable.ic_question_answer_white_24dp , R.drawable.ic_event_white_24dp , R.drawable.ic_video_label_white_24dp , R.drawable.ic_description_white_24dp} ;
+    int images[] = {R.drawable.shop , R.drawable.elearning , R.drawable.conference, R.drawable.today} ;
     private static final int TITLE_OFFSET_DIPS = 24;
     private static final int TAB_VIEW_PADDING_DIPS = 16;
     private static final int TAB_VIEW_TEXT_SIZE_SP = 17;
@@ -70,7 +71,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
     private int mTitleOffset;
 
     private int mTabViewLayoutId =  R.layout.custom_tab_layout;
-    private int mTabViewTextViewId=R.id.textView5 ;
+
     private int mTabImageViewId= R.id.im ;
 
     private boolean mDistributeEvenly;
@@ -148,7 +149,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
      */
     public void setCustomTabView(int layoutResId, int textViewId) {
         mTabViewLayoutId = layoutResId;
-        mTabViewTextViewId = textViewId;
+
     }
 
     /**
@@ -202,7 +203,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
                 // If there is a custom tab view layout id set, try and inflate it
                 tabView = LayoutInflater.from(getContext()).inflate(mTabViewLayoutId, mTabStrip,
                         false);
-                tabTitleView = (TextView) tabView.findViewById(mTabViewTextViewId);
+
                 tabImageView =(ImageView)tabView.findViewById(mTabImageViewId) ;
             }
 
@@ -211,7 +212,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
             }
 
             if (tabTitleView == null && TextView.class.isInstance(tabView)) {
-                tabTitleView = (TextView) tabView;
+
                 tabImageView =(ImageView)tabView.findViewById(mTabImageViewId) ;
             }
 
@@ -221,7 +222,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
                 lp.weight = 1;
             }
 
-            tabTitleView.setText(adapter.getPageTitle(i));
+
             tabImageView.setImageResource(images[i]);
 
 
