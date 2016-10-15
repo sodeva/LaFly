@@ -12,7 +12,9 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/lva"/>
+        android:id="@+id/lva"
+        android:divider="#FFFFFF"
+        android:dividerHeight="10dp"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
