@@ -45,6 +45,7 @@ public class Addhelper extends AppCompatActivity {
                 sp.edit().putInt("Nou" ,fnou).commit() ;
 
                 finish();
+
             }
         });
 

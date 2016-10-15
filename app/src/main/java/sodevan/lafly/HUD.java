@@ -1,5 +1,6 @@
 package sodevan.lafly;
 
+import android.app.Activity;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -38,6 +39,11 @@ import com.nightonke.boommenu.BoomMenuButton;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
 import com.pddstudio.urlshortener.URLShortener;
 
+import java.util.Timer;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+
 public class HUD extends Service implements View.OnTouchListener {
 
     String shorturl1 ;
@@ -62,6 +68,11 @@ public class HUD extends Service implements View.OnTouchListener {
     private LocationManager lm;
     SharedPreferences sp;
     int nou;
+    ScheduledExecutorService scheduler;
+    SmsManager sms;
+    Runnable runnableCode ;
+    Handler handler2 ;
+    int j ;
 
 
     private int status = 0;
@@ -175,35 +186,40 @@ public class HUD extends Service implements View.OnTouchListener {
                 if (LAT != null && LONG != null && nou != 0) {
 
 
-                    SmsManager sms = SmsManager.getDefault();
+               sms = SmsManager.getDefault();
                     for (int i = 1; i <= nou; i++) {
 
+                        j=0 ;
 
-                        String username = sp.getString("Username" + i, "error");
-                        String no = sp.getString("Userno" + i, "error");
-                        String name = sp.getString("name", "dash");
+                        final String username = sp.getString("Username" + i, "error");
+                   final      String no = sp.getString("Userno" + i, "error");
+                 final       String name = sp.getString("name", "dash");
                         String  link = "https://maps.googleapis.com/maps/api/staticmap?center="+LAT+","+LONG + "&zoom=18&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318&markers=color:red%7Clabel:C%7C40.718217,-73.998284" ;
-                          shorturl1= ""  ;
-                         URLShortener.shortUrl(link ,  new URLShortener.LoadingCallback() {
+
+            sms.sendTextMessage(no, null, username + "Your friend" + name + "  \n urgently needs help .  His/Her \n LAT : " + LAT + " \n LONG :" + LONG + "\n LOCATION : "+ "\n " , null, null);
+
+                       new Handler().postDelayed(new Runnable() {
+                           @Override
+                           public void run() {
+
+                               sms.sendTextMessage(no, null, username + "Your friend" + name + "  \n urgently needs help .  His/Her \n LAT : " + LAT + " \n LONG :" + LONG + "\n LOCATION : "+ "\n " , null, null);
+
+
+                           }
+                       },10000) ;
+
+
+                        new Handler().postDelayed(new Runnable() {
                             @Override
-                            public void startedLoading() {
+                            public void run() {
+
+                                sms.sendTextMessage(no, null, username + "Your friend" + name + "  \n urgently needs help .  His/Her \n LAT : " + LAT + " \n LONG :" + LONG + "\n LOCATION : "+ "\n " , null, null);
+
 
                             }
-
-                            @Override
-                            public void finishedLoading(@Nullable String shortUrl) {
-                                //make sure the string is not null
-                                if(shortUrl != null)
-                                    shorturl1 =shortUrl ;
-
-                            }
-                        });
-
-                        Log.e(username , ""+LAT);
+                        },20000) ;
 
 
-
-                       sms.sendTextMessage(no, null, username + "Your friend" + name + "  \n urgently needs help .  His/Her \n LAT : " + LAT + " \n LONG :" + LONG + "\n LOCATION : "+ "\n "+shorturl1 , null, null);
 
                     }
                 } else {
