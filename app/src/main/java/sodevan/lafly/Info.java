@@ -20,12 +20,10 @@ import android.widget.TextView;
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.maps.android.heatmaps.WeightedLatLng;
 import com.mapbox.mapboxsdk.geometry.LatLng;
 
 import java.util.ArrayList;
 
-import static com.google.maps.android.SphericalUtil.computeDistanceBetween;
 
 public class Info extends Fragment {
 

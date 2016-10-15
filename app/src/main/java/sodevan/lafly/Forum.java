@@ -185,19 +185,31 @@ public class Forum extends Fragment {
             case R.id.addques:
                 Intent addques = new Intent(getContext(), AddQues.class);
                 startActivity(addques);
+                break ;
 
             case R.id.lalife_check_box:
                 if (item.isChecked()) {
                     item.setChecked(false);
                     sp.edit().putBoolean("LaLifestatus", false).commit();
                     Toast.makeText(getContext(), " LaLife Deactivated ", Toast.LENGTH_SHORT).show();
+                    getActivity().stopService(new Intent(getActivity(),HUD.class));
                     // stop the widget services
 
                 } else {
                     item.setChecked(true);
                     sp.edit().putBoolean("LaLifestatus", true).commit() ;
                     Toast.makeText(getContext(), "LaLife Activated", Toast.LENGTH_SHORT).show();
+                    getActivity().startService(new Intent(getActivity(),HUD.class));
+
+
+
                 }
+
+                break ;
+
+            case R.id.Configlalife :
+                Intent config  = new Intent(getContext() , ConfigureLalife.class) ;
+                startActivity(config);
 
         }
                 return super.onOptionsItemSelected(item);
@@ -211,4 +223,9 @@ public class Forum extends Fragment {
     }
 
 
+
+
+
 }
+
+

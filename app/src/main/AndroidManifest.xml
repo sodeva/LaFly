@@ -2,8 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="sodevan.lafly">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+
+    <service android:name="com.mapbox.mapboxsdk.telemetry.TelemetryService" />
+
 
     <application
         android:allowBackup="true"
@@ -24,35 +31,37 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".Home"
-            android:theme="@style/AppTheme"
             android:screenOrientation="portrait"
-            />
-
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".AnswerScreen"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".QuestionScreen"
             android:theme="@style/AppTheme" />
-        <activity android:name=".AddQues"
-            android:theme="@style/AppTheme"
-            />
+        <activity
+            android:name=".AddQues"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".addNewEvent"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Event_father"
+            android:theme="@style/AppTheme" />
 
+        <service
+            android:name=".HUD"
+            android:enabled="true"
+            android:exported="true" />
 
-        <activity android:name=".addNewEvent"
+        <activity android:name=".ConfigureLalife"
             android:theme="@style/AppTheme"/>
-        <activity android:name=".Event_father"
+        <activity android:name=".Addhelper"
+            android:theme="@style/AppTheme"></activity>
+        <activity android:name=".Info_father"
             android:theme="@style/AppTheme"/>
 
 
-        <receiver
-            android:name="Lalife">
-
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-
-        </receiver>
     </application>
 
 </manifest>

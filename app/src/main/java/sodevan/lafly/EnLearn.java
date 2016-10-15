@@ -25,13 +25,14 @@ import com.google.firebase.database.FirebaseDatabase;
     DatabaseReference ref;
     private YouTubePlayer YPlayer;
     Context c ;
+        YouTubePlayerSupportFragment youTubePlayerFragment ;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
 
         View v = inflater.inflate(R.layout.activity_en_learn ,container  , false) ;
-/*
+
         database = FirebaseDatabase.getInstance() ;
         ref = database.getReference("Enlearn Videos")  ;
         lv = (ListView) v.findViewById(R.id.enlearnlistview);
@@ -52,36 +53,17 @@ import com.google.firebase.database.FirebaseDatabase;
                 Name.setText(name);
                 Date.setText(date);
 
-                YouTubePlayerSupportFragment youTubePlayerFragment = (YouTubePlayerSupportFragment) getFragmentManager().findFragmentById(R.id.youtube_fragment);
 
 
-                youTubePlayerFragment.initialize("AIzaSyCzEKeIrR_Cn-lORRuu0z-1PiD0kCYOI4I", new YouTubePlayer.OnInitializedListener(){
 
 
-                    @Override
-                    public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b)
-                    {
-                        if (!b) {
-                            YPlayer =youTubePlayer;
-                            YPlayer.setPlayerStyle(YouTubePlayer.PlayerStyle.DEFAULT);
-                            YPlayer.setFullscreen(false);
-                            YPlayer.loadVideo(url);
-                          YPlayer.pause();
-                        }
-                    }
 
-                    @Override
-                    public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult)
-                    {
 
-                    }
-                });
             }
 
 
         };
         lv.setAdapter(fb);
-        */
         return v ;
 
     }

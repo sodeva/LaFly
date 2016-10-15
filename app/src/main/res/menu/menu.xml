@@ -27,6 +27,12 @@
         />
 
 
+   <item
+    android:title="Configure LaLife"
+    android:id="@+id/Configlalife"
+    />
+
+
 
 
 </menu>

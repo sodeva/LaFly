@@ -19,7 +19,7 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        CharSequence Titles[] = {"Forum", "Events", "EnLearn", "Store"};
+        CharSequence Titles[] = {"Forum", "Events" , "EnLearn", "Store"};
 
         pager = (ViewPager)findViewById(R.id.pager);
 

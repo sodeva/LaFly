@@ -43,6 +43,8 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
             return  events  ;
         }
 
+
+
         else if(position==2) {
             EnLearn enLearn = new EnLearn() ;
             enLearn.setC(c);
