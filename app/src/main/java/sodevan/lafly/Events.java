@@ -61,7 +61,7 @@ public class Events extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                //Code for onitemclick
                 eventschild q =(eventschild) parent.getItemAtPosition(position) ;
-                String uid=q.getEvent_name()+q.getEvent_by();
+                String uid=q.getEvent_by()+q.getEvent_name();
                 Intent i=new Intent(getContext(),Event_father.class);
                 i.putExtra("uid",uid);
                 startActivity(i);

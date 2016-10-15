@@ -31,7 +31,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 
         View v = inflater.inflate(R.layout.activity_en_learn ,container  , false) ;
-
+/*
         database = FirebaseDatabase.getInstance() ;
         ref = database.getReference("Enlearn Videos")  ;
         lv = (ListView) v.findViewById(R.id.enlearnlistview);
@@ -81,6 +81,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
         };
         lv.setAdapter(fb);
+        */
         return v ;
 
     }

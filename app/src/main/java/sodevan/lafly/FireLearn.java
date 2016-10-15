@@ -1,6 +1,7 @@
 package sodevan.lafly;
 
 import android.app.Application;
+import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.FirebaseDatabase;
