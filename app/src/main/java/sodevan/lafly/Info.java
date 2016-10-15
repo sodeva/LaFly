@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,7 +32,8 @@ import static android.content.Context.LOCATION_SERVICE;
 
 
 public class Info extends Fragment {
-LocationManager lm;
+    LocationManager lm;
+    Button bt;
     LocationListener listener;
     Context c = getContext();
     FirebaseDatabase database;
@@ -62,7 +64,7 @@ LocationManager lm;
                 tv1.setText("   " + model.getName());
                 LatLng latLng = new LatLng(model.getLatitude(), model.getLongitude());
                 Log.d("current", "lat=" + LAT + "long" + LON);
-                Log.d("distance ",  "");
+                Log.d("distance ", "");
             }
         };
         lv.setAdapter(storeAdapter);
@@ -78,19 +80,40 @@ LocationManager lm;
             // for ActivityCompat#requestPermissions for more details.
             return null;
         }
-        lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, listener);
-        Toast.makeText(c, "LAT:"+LAT+"LON"+LON, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(c, "LAT:" + LAT + "LON" + LON, Toast.LENGTH_SHORT).show();
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                storelistchild store= (storelistchild) parent.getItemAtPosition(position);
-                Intent i=new Intent(getContext(),Info_father.class);
-                i.putStringArrayListExtra("items",store.getItems());
+                storelistchild store = (storelistchild) parent.getItemAtPosition(position);
+                Intent i = new Intent(getContext(), Info_father.class);
+                i.putStringArrayListExtra("items", store.getItems());
                 startActivity(i);
 
             }
         });
+        bt = (Button) v.findViewById(R.id.gal);
+        bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ActivityCompat.checkSelfPermission(c, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(c, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                    return;
+                }
+                lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, listener);
+                Log.d("Position","lat : "+LAT+"long : "+LON );
+
+            }
+        });
+
         return v ;
+
+
     }
 
 
@@ -122,4 +145,6 @@ LocationManager lm;
 
         }
     }
+
+
 }

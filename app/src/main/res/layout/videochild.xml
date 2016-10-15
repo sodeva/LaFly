@@ -7,15 +7,15 @@
     android:background="@color/white"
     tools:ignore="PrivateResource">
 
-    <com.pierfrancescosoffritti.youtubeplayer.YouTubePlayerView
-        android:id="@+id/youtube_player_view"
+    <com.jaedongchicken.ytplayer.YoutubePlayerView
+        android:id="@+id/youtubePlayerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
     <TextView
         android:layout_marginTop="2dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/youtube_player_view"
+        android:layout_below="@id/youtubePlayerView"
         android:textSize="22sp"
         android:textColor="@color/navigationBarColor"
         android:id="@+id/heading"

@@ -10,10 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.jaedongchicken.ytplayer.YoutubePlayerView;
+import com.jaedongchicken.ytplayer.model.YTParams;
 import com.pierfrancescosoffritti.youtubeplayer.AbstractYouTubeListener;
 import com.pierfrancescosoffritti.youtubeplayer.YouTubePlayerView;
 
@@ -49,13 +52,75 @@ public class EnLearn  extends Fragment {
                 Date.setTypeface(roboto);
                 Name.setText(name);
                 Date.setText(date);
-                final YouTubePlayerView youTubePlayerView = (YouTubePlayerView)v. findViewById(R.id.youtube_player_view);
-                youTubePlayerView.initialize(new AbstractYouTubeListener() {
+                final YoutubePlayerView youtubePlayerView = (YoutubePlayerView) v.findViewById(R.id.youtubePlayerView);
+
+                // Control values
+                // see more # https://developers.google.com/youtube/player_parameters?hl=en
+                YTParams params = new YTParams();
+                // params.setControls(0); // hide control
+
+                // initialize YoutubePlayerCallBackListener with Params and VideoID
+                // youtubePlayerView.initialize("WCchr07kLPE", params, new YoutubePlayerView.YouTubeListener())
+
+
+                // make auto height of youtube. if you want to use 'wrap_content'
+                youtubePlayerView.setAutoPlayerHeight(getContext());
+                // initialize YoutubePlayerCallBackListener and VideoID
+                youtubePlayerView.initialize(url, new YoutubePlayerView.YouTubeListener() {
+
                     @Override
                     public void onReady() {
-                        youTubePlayerView.loadVideo(url, 0);
+                        // when player is ready.
                     }
-                }, true);
+
+                    @Override
+                    public void onStateChange(YoutubePlayerView.STATE state) {
+                        /**
+                         * YoutubePlayerView.STATE
+                         *
+                         * UNSTARTED, ENDED, PLAYING, PAUSED, BUFFERING, CUED, NONE
+                         *
+                         */
+                    }
+
+                    @Override
+                    public void onPlaybackQualityChange(String arg) {
+                    }
+
+                    @Override
+                    public void onPlaybackRateChange(String arg) {
+                    }
+
+                    @Override
+                    public void onError(String error) {
+                        Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onApiChange(String arg) {
+                    }
+
+                    @Override
+                    public void onCurrentSecond(double second) {
+                        // currentTime callback
+                    }
+
+                    @Override
+                    public void onDuration(double duration) {
+                        // total duration
+                    }
+
+                    @Override
+                    public void logs(String log) {
+                        // javascript debug log. you don't need to use it.
+                    }
+                });
+
+
+                // psuse video
+                youtubePlayerView.pause();
+                // play video when it's ready
+                youtubePlayerView.play();
 
             }
 

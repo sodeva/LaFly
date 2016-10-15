@@ -20,6 +20,7 @@ android {
 }
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 dependencies {
@@ -49,6 +50,7 @@ dependencies {
     compile ('com.mapbox.mapboxsdk:mapbox-android-sdk:4.1.1@aar'){
         transitive=true
     }
+    compile 'com.jaedongchicken:ytplayer:1.2.0'
 
     testCompile 'junit:junit:4.12'
 }

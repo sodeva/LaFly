@@ -5,7 +5,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import static sodevan.lafly.R.id.pager;
+
 
 public class Home extends AppCompatActivity {
 
@@ -24,6 +24,8 @@ public class Home extends AppCompatActivity {
         pager = (ViewPager)findViewById(R.id.pager);
 
         Context c = getApplicationContext();
+
+
 
         adapter = new ViewPagerAdapter(getSupportFragmentManager() , Titles ,n, c ) ;
 
