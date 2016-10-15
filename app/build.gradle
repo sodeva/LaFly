@@ -40,6 +40,8 @@ dependencies {
     compile 'com.nightonke:boommenu:1.0.9'
     compile 'com.oguzdev:CircularFloatingActionMenu:1.0.2'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha9'
+    compile 'com.pddstudio:urlshortener:1.0.1'
+
     compile files('libs/YouTubeAndroidPlayerApi.jar')
     compile 'com.github.PierfrancescoSoffritti:AndroidYouTubePlayer:0.7.2'
 

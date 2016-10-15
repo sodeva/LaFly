@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.telephony.SmsManager;
 import android.util.DisplayMetrics;
@@ -30,14 +31,16 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.nightonke.boommenu.BoomMenuButton;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
+import com.pddstudio.urlshortener.URLShortener;
 
 public class HUD extends Service implements View.OnTouchListener {
 
-
+    String shorturl1 ;
     private RelativeLayout Parent;
     private int initialX;
     private int initialY;
@@ -151,7 +154,7 @@ public class HUD extends Service implements View.OnTouchListener {
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
-        lm.requestLocationUpdates(lm.NETWORK_PROVIDER, 0, 0, listener);
+        lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, listener);
 
 
 
@@ -179,15 +182,35 @@ public class HUD extends Service implements View.OnTouchListener {
                         String username = sp.getString("Username" + i, "error");
                         String no = sp.getString("Userno" + i, "error");
                         String name = sp.getString("name", "dash");
+                        String  link = "https://maps.googleapis.com/maps/api/staticmap?center="+LAT+","+LONG + "&zoom=18&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318&markers=color:red%7Clabel:C%7C40.718217,-73.998284" ;
+                          shorturl1= ""  ;
+                         URLShortener.shortUrl(link ,  new URLShortener.LoadingCallback() {
+                            @Override
+                            public void startedLoading() {
+
+                            }
+
+                            @Override
+                            public void finishedLoading(@Nullable String shortUrl) {
+                                //make sure the string is not null
+                                if(shortUrl != null)
+                                    shorturl1 =shortUrl ;
+
+                            }
+                        });
+
+                        Log.e(username , ""+LAT);
 
 
-                      //  sms.sendTextMessage(no, null, username + "Your friend" + name + "urgently needs help .  His/Her \n LAT : " + LAT + " \n LONG :" + LONG, null, null);
+
+                       sms.sendTextMessage(no, null, username + "Your friend" + name + "  \n urgently needs help .  His/Her \n LAT : " + LAT + " \n LONG :" + LONG + "\n LOCATION : "+ "\n "+shorturl1 , null, null);
 
                     }
                 } else {
 
                     Toast.makeText(this, "Try Again", Toast.LENGTH_SHORT).show();
                     Log.e("n", nou + "");
+                    Log.e(" lat", LAT+"" ) ;
                 }
 
 
@@ -293,6 +316,7 @@ public class HUD extends Service implements View.OnTouchListener {
             LAT = location.getLatitude();
 
 
+
         }
 
         @Override
@@ -312,6 +336,8 @@ public class HUD extends Service implements View.OnTouchListener {
 
 
     }
+
+
 
 }
 
