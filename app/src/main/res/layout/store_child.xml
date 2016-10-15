@@ -2,23 +2,41 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#EF9A9A"
     android:padding="20dp">
 
     <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         app:srcCompat="@drawable/pic"
         android:id="@+id/imageView2" />
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/imageView2"
+        android:paddingLeft="10dp"
+        android:layout_marginTop="10dp">
+
     <TextView
         android:text="TextView"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/colorPrimary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/textView"
-        android:layout_toRightOf="@+id/imageView2"
-        android:layout_toEndOf="@+id/imageView2"
         android:textColor="@color/white"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Time"
+            android:text="Delievery Time : 10 min"
+            android:layout_below="@id/textView"
+
+
+            />
+
+    </RelativeLayout>
 
 </RelativeLayout>
