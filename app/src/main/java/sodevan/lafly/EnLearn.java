@@ -15,6 +15,8 @@ import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;
+import com.google.android.youtube.player.YouTubeThumbnailLoader;
+import com.google.android.youtube.player.YouTubeThumbnailView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -46,12 +48,32 @@ import com.google.firebase.database.FirebaseDatabase;
                 final String url=model.getURL();
                 String date=model.getDate();
                 String name=model.getName();
-                TextView Date=(TextView)v.findViewById(R.id.date);
-                TextView Name=(TextView)v.findViewById(R.id.heading);
-                Name.setTypeface(roboto);
-                Date.setTypeface(roboto);
-                Name.setText(name);
-                Date.setText(date);
+               // TextView Date=(TextView)v.findViewById(R.id.date);
+                //TextView Name=(TextView)v.findViewById(R.id.heading);
+               // Name.setTypeface(roboto);
+                //Date.setTypeface(roboto);
+                //Name.setText(name);
+                //Date.setText(date);
+
+                 YouTubeThumbnailView thumb    = (YouTubeThumbnailView) v.findViewById(R.id.thumb);
+
+                thumb.initialize("AIzaSyCzEKeIrR_Cn-lORRuu0z-1PiD0kCYOI4I" , new YouTubeThumbnailView.OnInitializedListener()
+                {
+
+                    @Override
+                    public void onInitializationSuccess(YouTubeThumbnailView youTubeThumbnailView, YouTubeThumbnailLoader youTubeThumbnailLoader) {
+
+                        youTubeThumbnailLoader.setVideo(url);
+
+                    }
+
+                    @Override
+                    public void onInitializationFailure(YouTubeThumbnailView youTubeThumbnailView, YouTubeInitializationResult youTubeInitializationResult) {
+
+                    }
+                });
+
+
 
 
 
