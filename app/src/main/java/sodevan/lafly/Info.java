@@ -40,7 +40,6 @@ public class Info extends Fragment {
     TextView tv1;
     GPSTracker gps;
     double LAT, LON;
-    Button bt;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -49,20 +48,8 @@ public class Info extends Fragment {
 
         //LOCATION BEGINS
         LocationManager lm = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
-        LocationListener listener = new MyLocListner();
-        if (ActivityCompat.checkSelfPermission(c, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(c, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            Toast.makeText(c, "Enable permission", Toast.LENGTH_SHORT).show();
-            return null;
-        }
-        lm.requestLocationUpdates(lm.GPS_PROVIDER,
-                0, 0, listener);
+
+
         //LOCATION ENDS
 
 
@@ -82,13 +69,7 @@ public class Info extends Fragment {
             }
         };
     lv.setAdapter(storeAdapter);
-        bt= (Button) v.findViewById(R.id.loc);
-        bt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "lat:"+LAT+"lon:"+LON, Toast.LENGTH_SHORT).show();
-            }
-        });
+
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -112,30 +93,4 @@ public class Info extends Fragment {
         this.c = c;
     }
 
-    private class MyLocListner implements LocationListener {
-        @Override
-        public void onLocationChanged(Location location) {
-
-            LAT =
-                    location.getLatitude();
-
-            LON =
-                    location.getLongitude();
-        }
-
-        @Override
-        public void onStatusChanged(String provider, int status, Bundle extras) {
-
-        }
-
-        @Override
-        public void onProviderEnabled(String provider) {
-
-        }
-
-        @Override
-        public void onProviderDisabled(String provider) {
-
-        }
-    }
 }
