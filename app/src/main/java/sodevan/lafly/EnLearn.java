@@ -38,7 +38,7 @@ public class EnLearn  extends Fragment {
         lv = (ListView) v.findViewById(R.id.enlearnlistview);
 
 
-      /*  FirebaseListAdapter<VideoChild> fb = new FirebaseListAdapter<VideoChild>(getActivity(), VideoChild.class, R.layout.videochild, ref) {
+        FirebaseListAdapter<VideoChild> fb = new FirebaseListAdapter<VideoChild>(getActivity(), VideoChild.class, R.layout.videochild, ref) {
 
             @Override
             protected void populateView(View v, VideoChild model, int position) {
@@ -126,7 +126,7 @@ public class EnLearn  extends Fragment {
 
 
         };
-        lv.setAdapter(fb); */
+        lv.setAdapter(fb);
         return v ;
 
     }
