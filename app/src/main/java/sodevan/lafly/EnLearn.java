@@ -35,67 +35,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
         View v = inflater.inflate(R.layout.activity_en_learn ,container  , false) ;
 
-        database = FirebaseDatabase.getInstance() ;
-        ref = database.getReference("Enlearn Videos")  ;
-        lv = (ListView) v.findViewById(R.id.enlearnlistview);
-
-
-        FirebaseListAdapter<VideoChild> fb = new FirebaseListAdapter<VideoChild>(getActivity(), VideoChild.class, R.layout.videochild, ref) {
-
-            @Override
-            protected void populateView(View v, VideoChild model, int position) {
-                roboto=Typeface.createFromAsset(c.getAssets() , "roboto.ttf") ;
-                final String url=model.getURL();
-                String date=model.getDate();
-                String name=model.getName();
-               // TextView Date=(TextView)v.findViewById(R.id.date);
-                //TextView Name=(TextView)v.findViewById(R.id.heading);
-               // Name.setTypeface(roboto);
-                //Date.setTypeface(roboto);
-                //Name.setText(name);
-                //Date.setText(date);
-
-                 YouTubeThumbnailView thumb    = (YouTubeThumbnailView) v.findViewById(R.id.thumb);
-                thumb.initialize("AIzaSyCzEKeIrR_Cn-lORRuu0z-1PiD0kCYOI4I" , new YouTubeThumbnailView.OnInitializedListener(){
-
-
-
-                    @Override
-                    public void onInitializationSuccess(YouTubeThumbnailView youTubeThumbnailView, YouTubeThumbnailLoader youTubeThumbnailLoader) {
-
-                        youTubeThumbnailLoader.setVideo(url);
-                        youTubeThumbnailLoader.setOnThumbnailLoadedListener(new YouTubeThumbnailLoader.OnThumbnailLoadedListener() {
-                            @Override
-                            public void onThumbnailLoaded(YouTubeThumbnailView youTubeThumbnailView, String s) {
-
-                            }
-
-                            @Override
-                            public void onThumbnailError(YouTubeThumbnailView youTubeThumbnailView, YouTubeThumbnailLoader.ErrorReason errorReason) {
-
-                            }
-                        });
-
-
-                    }
-
-                    @Override
-                    public void onInitializationFailure(YouTubeThumbnailView youTubeThumbnailView, YouTubeInitializationResult youTubeInitializationResult) {
-
-                    }
-                } );
-
-
-
-
-
-
-
-            }
-
-
-        };
-        lv.setAdapter(fb);
         return v ;
 
     }
