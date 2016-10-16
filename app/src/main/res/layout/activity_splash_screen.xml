@@ -38,28 +38,17 @@
 
         />
 
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tip of the day"
-        android:textColor="#222222"
-        android:id="@+id/tiphead"
-        android:layout_below="@id/tagline"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
-        android:textSize="30dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tiphead"
+        android:layout_below="@+id/tagline"
         android:id="@+id/tip"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:textColor="@color/windowBackground"
         android:layout_centerHorizontal="true"
         android:text=" &quot;  Have a Hack Bitch  &quot; "
-        android:typeface="serif"
+        android:textSize="20sp"
+        android:typeface="monospace"
         android:padding="30dp"
         />
 

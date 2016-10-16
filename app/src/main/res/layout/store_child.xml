@@ -17,26 +17,36 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/imageView2"
         android:paddingLeft="10dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:id="@+id/alltext">
 
     <TextView
-        android:text="TextView"
+        android:text="WHISPER ULTRA-LITE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView"
+        android:id="@+id/nameitem"
         android:textColor="@color/white"/>
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/Time"
-            android:text="Delievery Time : 10 min"
-            android:layout_below="@id/textView"
+            android:id="@+id/price"
+            android:text="Rs 120"
+            android:layout_below="@id/nameitem"
+            android:layout_marginTop="30dp"
 
 
             />
 
     </RelativeLayout>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:id="@+id/checkbox1"
+        />
 
 </RelativeLayout>

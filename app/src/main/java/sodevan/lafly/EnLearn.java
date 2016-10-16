@@ -131,6 +131,8 @@ public class EnLearn  extends Fragment {
 
     }
 
+
+
     public void setC(Context c) {
         this.c = c;
     }
