@@ -37,6 +37,7 @@ public class Forum extends Fragment {
     DatabaseReference reference ;
 
 
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

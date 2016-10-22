@@ -1,4 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/checkout"
+        android:orderInCategory="200"
+        android:icon="@drawable/ic_check_circle_white_24dp"
+        app:showAsAction="ifRoom"
+        />
+
+    <item
+        android:title="Configure LaLife"
+        android:id="@+id/Configlalife1"
+        />
+
+    <group android:id="@+id/group2"
+        android:checkableBehavior="all">
+
+        <item
+            android:title="LaLife"
+            android:id="@+id/lalife_check_box2">
+
+        </item>
+
+    </group>
 
 </menu>

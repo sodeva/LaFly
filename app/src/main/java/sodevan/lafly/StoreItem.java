@@ -12,12 +12,14 @@ public class StoreItem {
     float price ;
 
 
+    boolean status ;
     int image ;
 
-    public StoreItem(String iname, float price , int image) {
+    public StoreItem(String iname, float price , int image , boolean status) {
         this.iname = iname;
         this.price = price;
         this.image = image ;
+        this.status = status ;
 
 
     }
@@ -45,6 +47,14 @@ public class StoreItem {
 
     public void setPrice(float price) {
         this.price = price;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
 

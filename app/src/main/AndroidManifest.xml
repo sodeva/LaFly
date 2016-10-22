@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="sodevan.lafly">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -11,7 +11,6 @@
     <uses-permission android:name="android.permission.SEND_SMS" />
 
     <service android:name="com.mapbox.mapboxsdk.telemetry.TelemetryService" />
-
 
     <application
         android:allowBackup="true"
@@ -55,15 +54,19 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".ConfigureLalife"
+        <activity
+            android:name=".ConfigureLalife"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Addhelper"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Info_father"
+            android:theme="@style/AppTheme" />
+
+
+        <activity android:name=".OrderScreen"
             android:theme="@style/AppTheme"/>
-        <activity android:name=".Addhelper"
-            android:theme="@style/AppTheme"></activity>
-        <activity android:name=".Info_father"
-            android:theme="@style/AppTheme"/>
-
-
-
     </application>
 
 </manifest>

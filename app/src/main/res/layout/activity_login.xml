@@ -41,9 +41,6 @@
             android:layout_marginTop="65dp"
             android:background="@drawable/etshape"
             android:padding="20dp"
-
-
-
             />
 
         <EditText

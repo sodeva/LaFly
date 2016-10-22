@@ -35,15 +35,18 @@ public class SplashScreen extends AppCompatActivity {
 
         Typeface tf = Typeface.createFromAsset(getAssets(),"NN.ttf");
         Typeface tf2 = Typeface.createFromAsset(getAssets(),"CaviarDreams.ttf");
+        Typeface tf3 = Typeface.createFromAsset(getAssets(),"caviar.ttf");
 
         splashhead.setTypeface(tf);
         tagline.setTypeface(tf2);
+
 
         Random rand = new Random();
         int r =  rand.nextInt(3) + 1;
 
 
         String tip = tips[r] ;
+        tip1.setTypeface(tf3);
 
         tip1.setText(tip);
 

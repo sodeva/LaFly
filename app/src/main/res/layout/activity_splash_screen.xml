@@ -48,7 +48,7 @@
         android:layout_centerHorizontal="true"
         android:text=" &quot;  Have a Hack Bitch  &quot; "
         android:textSize="20sp"
-        android:typeface="monospace"
+
         android:padding="30dp"
         />
 

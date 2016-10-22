@@ -9,4 +9,5 @@
     <color name="navigationBarColor">#000000</color>
     <color name="yellow">#03A9F4</color>
     <color name="trans">#80FFFFFF</color>
+    <color name="tria">#EF9A9A</color>
 </resources>
